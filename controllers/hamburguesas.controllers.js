@@ -18,7 +18,7 @@ const getCategoriaVegetariana = async (req,res)=>{
 }
 
 
-const getChefB = async (req,res)=>{
+const getHamburguesasChefB = async (req,res)=>{
     try {
         
 
@@ -41,5 +41,5 @@ const getChefB = async (req,res)=>{
 
 export {
     getCategoriaVegetariana,
-    getChefB
+    getHamburguesasChefB
 }

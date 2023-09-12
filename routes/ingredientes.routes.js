@@ -6,7 +6,7 @@ import { getStocksMenores } from "../controllers/ingredientes.controllers.js"; /
 const router = Router();
 
 //? Generamos la ruta con el metodo get
-router.get("/",getStocksMenores)
+router.get("/ingredientes/stockMenor",getStocksMenores)
 
 //? Exportamos el router que contiene la ruta del metodo
 export default router;

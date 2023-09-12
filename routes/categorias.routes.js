@@ -6,7 +6,8 @@ import { getCategorias } from "../controllers/categorias.controllers.js";
 const router = Router();
 
 
-router.get("/",getCategorias)
+router.get("/categorias",getCategorias)
+
 
 
 export default router;

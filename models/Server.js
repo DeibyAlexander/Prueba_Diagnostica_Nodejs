@@ -10,7 +10,7 @@ import routerHamburguesas from "../routes/hamburguesas.routes.js";
 import routerChefs from "../routes/chefs.routes.js";
 
 import routerCategorias from "../routes/categorias.routes.js";
-import router from "../routes/hamburguesas.routes.js";
+
 
 
 class Server{ //? Generamos la clase Server
@@ -20,10 +20,10 @@ class Server{ //? Generamos la clase Server
         this.port = process.env.PORT //? Delcaramos el port desde el archivo "".env"
 
 
-        this.ingredientesPath = "/ingredientes/stockMenor" //? Generamos el endPoint de ingrediente
-        this.hamburguesasPath = "/hamburguesas/Vegetarianas"
-        this.chefsPath = "/chefs/Carnes"
-        this.categoriasPath = "/categorias"
+        this.ingredientesPath = "/" //? Generamos el endPoint de ingrediente
+        this.hamburguesasPath = "/"
+        this.chefsPath = "/"
+        this.categoriasPath = "/"
 
 
         //? Conexion a la base de datos Mongo
