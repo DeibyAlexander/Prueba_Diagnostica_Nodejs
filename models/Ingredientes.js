@@ -11,7 +11,7 @@ const IngredientesSchema = Schema({ //? Utilizamos el Schema importado
         required:true
      },
      precio:{
-        type:String,
+        type:Number,
         required:true
      },
      stock:{

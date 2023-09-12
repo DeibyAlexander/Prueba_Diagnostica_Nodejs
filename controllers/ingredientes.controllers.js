@@ -21,7 +21,7 @@ const AumentarPrecio = async (req,res)=>{
     try {
         
         //? Pongo los que voy a traer dentro de una constante
-        const precio = await Ingredientes.updateMany( { $mul: { precio: 1.1 } });
+        const precio = await Ingredientes.updateMany( { $mul: { precio: 1.5 } });
 
         //? Envio la respuesat en formato JSON
         res.json(precio)
@@ -30,6 +30,21 @@ const AumentarPrecio = async (req,res)=>{
         console.log("error");
     }
 }
+
+const StockMenor0 = async (req,res)=>{
+    try {
+        
+        //? Pongo los que voy a traer dentro de una constante
+        const stock0 = await Ingredientes.deleteMany({ stock: 0  });
+
+        //? Envio la respuesat en formato JSON
+        res.json(stock0)
+
+    } catch (error) {
+        console.log("error");
+    }
+}
+
 
 
 
@@ -40,5 +55,6 @@ const AumentarPrecio = async (req,res)=>{
 
 export {
     getStocksMenores,
-    AumentarPrecio
+    AumentarPrecio,
+    StockMenor0
 }

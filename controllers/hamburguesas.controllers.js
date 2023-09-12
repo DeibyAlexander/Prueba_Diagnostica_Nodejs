@@ -32,6 +32,26 @@ const getHamburguesasChefB = async (req,res)=>{
     }
 }
 
+const nuevoIngrediente = async (req,res)=>{
+    try {
+        
+        const query = { categoria: "Vegetariana" };
+        const nuevoIngrediente = req.params.ingrediente;
+
+        const hamburguesa = await Hamburguesas.findOne(query);
+        hamburguesa.ingredientes.push(nuevoIngrediente);
+
+        await hamburguesa.save();
+
+        res.json(hamburguesa)
+
+       
+    } catch (error) {
+        console.log("error");
+    }
+}
+
+
 
 
  
@@ -41,5 +61,6 @@ const getHamburguesasChefB = async (req,res)=>{
 
 export {
     getCategoriaVegetariana,
-    getHamburguesasChefB
+    getHamburguesasChefB,
+    nuevoIngrediente
 }
