@@ -5,6 +5,13 @@ import dbConnection from "../config/config.js"; //! Importamos la coneccion desd
 
 import routerIngredientes from "../routes/ingredientes.routes.js"; //!Importamos la ruta de ingredientes
 
+import routerHamburguesas from "../routes/hamburguesas.routes.js";
+
+import routerChefs from "../routes/chefs.routes.js";
+
+import routerCategorias from "../routes/categorias.routes.js";
+import router from "../routes/hamburguesas.routes.js";
+
 
 class Server{ //? Generamos la clase Server
 
@@ -14,6 +21,9 @@ class Server{ //? Generamos la clase Server
 
 
         this.ingredientesPath = "/ingredientes/stockMenor" //? Generamos el endPoint de ingrediente
+        this.hamburguesasPath = "/hamburguesas/Vegetarianas"
+        this.chefsPath = "/chefs/Carnes"
+        this.categoriasPath = "/categorias"
 
 
         //? Conexion a la base de datos Mongo
@@ -47,6 +57,9 @@ class Server{ //? Generamos la clase Server
     routes(){ //? Instanciamos las routes
 
         this.app.use(this.ingredientesPath, routerIngredientes) //? llamamos la ruta
+        this.app.use(this.hamburguesasPath, routerHamburguesas)
+        this.app.use(this.chefsPath, routerChefs)
+        this.app.use(this.categoriasPath, routerCategorias)
 
     }
 
