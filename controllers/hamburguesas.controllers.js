@@ -150,6 +150,17 @@ const getIngredientesAlfatbeticos = async (req,res)=>{
     }
 }
 
+const getHamburguesaCara = async (req,res)=>
+{
+    try {
+
+        const masCara = await Hamburguesas.find().sort({precio:-1}).limit(1)
+
+        res.json(masCara)
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 
@@ -169,5 +180,6 @@ export {
     getHamburguesaAscendentes,
     getTomateLechuga,
     incrementarPrecioGourmet,
-    getIngredientesAlfatbeticos
+    getIngredientesAlfatbeticos,
+    getHamburguesaCara
 }
