@@ -17,7 +17,19 @@ const getCategorias = async (req,res)=>{
     }
 }
 
+const getDescripcionGourmet = async (req, res)=>{
+    try {
+        const gourmet = await Categorias.find({descripcion: /gourmet/})
+        
+        res.json(gourmet)
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
 export {
-    getCategorias
+    getCategorias,
+    getDescripcionGourmet
 }

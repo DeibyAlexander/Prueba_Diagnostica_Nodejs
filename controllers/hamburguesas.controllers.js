@@ -63,7 +63,48 @@ const getHamburguesasPanIntegral = async (req,res)=>{
     }
 }
 
+const getNoQuesoCheddar =async (req, res)=>{
+    try {
+        
+        const quesoCheddar = await Hamburguesas.find({ingredientes: {$ne:"Queso cheddar"}})
 
+        res.json(quesoCheddar)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const getHamburguesasMenor9 = async (req,res)=>{
+    try {
+        const preciomenor9 = await Hamburguesas.find({precio:{$lte: 9}})
+
+        res.json(preciomenor9)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const eliminarHamburguesaMe5 = async (req,res)=>{
+    try {
+        const ingredientesMenor5 = await Hamburguesas.deleteMany( {$expr:  {$lt:[{ $size: "$ingredientes" },5]} })
+
+        res.json(ingredientesMenor5)
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const getHamburguesaAscendentes = async (req,res)=>{
+    try {
+        const ordenAscendente = await Hamburguesas.find().sort({precio:-1})
+
+        res.json(ordenAscendente)
+
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
  
@@ -75,5 +116,9 @@ export {
     getCategoriaVegetariana,
     getHamburguesasChefB,
     agregarIngrediente,
-    getHamburguesasPanIntegral
+    getHamburguesasPanIntegral,
+    getNoQuesoCheddar,
+    getHamburguesasMenor9,
+    eliminarHamburguesaMe5,
+    getHamburguesaAscendentes
 }

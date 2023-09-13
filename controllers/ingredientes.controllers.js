@@ -56,6 +56,59 @@ const ingredienteMasCaro = async (req,res)=>{
     }
 }
 
+const AumentarStockPan = async (req,res)=>{
+    try {
+
+
+        const precio = await Ingredientes.updateMany({nombre: "Pan"}, { $inc: { stock: 100 } });
+
+        res.json(precio)
+
+    } catch (error) {
+        console.log("error");
+    }
+}
+
+
+const getDescripcionClasico = async (req, res)=>{
+    try {
+        const clasico = await Ingredientes.find({descripcion: /clásico/})
+        
+        res.json(clasico)
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+const getIngredintesEntrePrecio = async (req,res)=>{
+    try {
+
+        const precioEntre2y5 = await Ingredientes.find({precio:{$lte:5,$gte:2}})
+
+        res.json(precioEntre2y5)
+
+
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const actualizarDescripcionPan = async(req,res)=>{
+    try {
+
+        const actualizarDescripcion = req.params.descripcion;
+
+        const descripcion = await Ingredientes.updateMany({nombre:"Pan"},{descripcion: actualizarDescripcion})
+
+        res.json(descripcion)
+    } catch (error) {
+        console.log();
+    }
+}
+
 
 
 
@@ -68,5 +121,9 @@ export {
     getStocksMenores,
     AumentarPrecio,
     StockMenor0,
-    ingredienteMasCaro
+    ingredienteMasCaro,
+    AumentarStockPan,
+    getDescripcionClasico,
+    getIngredintesEntrePrecio,
+    actualizarDescripcionPan
 }
