@@ -6,7 +6,7 @@ import { getCategorias } from "../controllers/categorias.controllers.js";
 const router = Router();
 
 
-router.get("/categorias",getCategorias)
+router.get("/ejercicio6",getCategorias)
 
 
 

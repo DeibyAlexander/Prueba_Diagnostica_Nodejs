@@ -1,3 +1,4 @@
+import { json } from "express";
 import Ingredientes from "../models/Ingredientes.js"; //! Importamos el model de ingredientes
 
 
@@ -45,6 +46,16 @@ const StockMenor0 = async (req,res)=>{
     }
 }
 
+const ingredienteMasCaro = async (req,res)=>{
+    try {
+        const ingrediente = await Ingredientes.findOne().sort({ precio: -1 });
+
+        res.json(ingrediente)
+    } catch (error) {
+        
+    }
+}
+
 
 
 
@@ -56,5 +67,6 @@ const StockMenor0 = async (req,res)=>{
 export {
     getStocksMenores,
     AumentarPrecio,
-    StockMenor0
+    StockMenor0,
+    ingredienteMasCaro
 }

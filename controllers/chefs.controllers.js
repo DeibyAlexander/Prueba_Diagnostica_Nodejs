@@ -18,6 +18,21 @@ const getChefsCarnes = async (req,res)=>{
 }
 
 
+const cambiarEspecialidad = async (req,res)=>{
+    try {
+        
+
+        const ChefC = await Chefs.updateOne({$set:{especialidad: "Cocina Internacional"} })
+
+
+        res.json(ChefC)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
 export {
-    getChefsCarnes
+    getChefsCarnes,
+    cambiarEspecialidad
 }

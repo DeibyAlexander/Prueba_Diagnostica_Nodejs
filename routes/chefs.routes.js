@@ -1,12 +1,13 @@
 import { Router } from "express";
 
-import { getChefsCarnes } from "../controllers/chefs.controllers.js"; 
+import { getChefsCarnes, cambiarEspecialidad } from "../controllers/chefs.controllers.js"; 
 
 
 const router = Router();
 
 
-router.get("/chefs/Carnes",getChefsCarnes)
+router.get("/ejercicio3",getChefsCarnes)
+router.get("/ejercicio10", cambiarEspecialidad)
 
 
 export default router;

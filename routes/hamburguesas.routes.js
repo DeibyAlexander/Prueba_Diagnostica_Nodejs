@@ -1,16 +1,18 @@
 import { Router } from "express";
 
-import { getCategoriaVegetariana, getHamburguesasChefB, agregarIngrediente } from "../controllers/hamburguesas.controllers.js"; 
+import { getCategoriaVegetariana, getHamburguesasChefB, agregarIngrediente, getHamburguesasPanIntegral} from "../controllers/hamburguesas.controllers.js"; 
 
 
 const router = Router();
 
 
-router.get("/hamburguesas/Vegetarianas",getCategoriaVegetariana)
-router.get("/hamburguesas/chefB",getHamburguesasChefB)
+router.get("/ejercicio2",getCategoriaVegetariana)
+router.get("/ejercicio5",getHamburguesasChefB)
 
 
-router.post("/newIngre/:ingre", agregarIngrediente);
+router.post("/ejercicio8/:ingre", agregarIngrediente);
+
+router.get("/ejercicio9", getHamburguesasPanIntegral)
 
 
 export default router;

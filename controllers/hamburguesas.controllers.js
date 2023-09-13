@@ -49,6 +49,20 @@ const agregarIngrediente = async (req, res) => {
     }
 }
 
+const getHamburguesasPanIntegral = async (req,res)=>{
+    try {
+        
+
+        const panIntegral = await Hamburguesas.find({ingredientes :"Pan integral"});
+
+
+        res.json(panIntegral)
+
+    } catch (error) {
+        console.log("error");
+    }
+}
+
 
 
 
@@ -60,6 +74,6 @@ const agregarIngrediente = async (req, res) => {
 export {
     getCategoriaVegetariana,
     getHamburguesasChefB,
-    
-    agregarIngrediente
+    agregarIngrediente,
+    getHamburguesasPanIntegral
 }
