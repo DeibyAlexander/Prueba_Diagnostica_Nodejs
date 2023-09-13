@@ -2,24 +2,19 @@ import { model, Schema } from "mongoose";
 
 const HamburguesasSchema = Schema({ 
     nombre:{
-        type:String, 
-        required:true 
+        type:String
      },
      categoria:{
-        type:String,
-        required:true
+        type:String
      },
      ingredientes:{
-        type:Array,
-        required:true
+        type:Array
      },
      precio:{
-        type:Number,
-        required:true
+        type:Number
      },
      chefs:{
-        type:String,
-        required:true
+        type:String
      }
 })
 
