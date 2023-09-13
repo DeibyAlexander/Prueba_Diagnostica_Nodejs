@@ -57,10 +57,23 @@ const insertChefCocinAsia = async (req,res)=>{
     }
 }
 
+const getExceptoChefA = async (req,res)=>{
+    try {
+        
+        const sinChefA = await Chefs.find({nombre:{$ne:"ChefA"}})
+
+        res.json(sinChefA)
+
+
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 export {
     getChefsCarnes,
     cambiarEspecialidad,
     getConteoChef,
-    insertChefCocinAsia
+    insertChefCocinAsia,
+    getExceptoChefA
 }

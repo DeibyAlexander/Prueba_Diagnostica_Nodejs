@@ -106,6 +106,52 @@ const getHamburguesaAscendentes = async (req,res)=>{
     }
 }
 
+const getTomateLechuga = async (req,res)=>{
+    try {
+        const tomateLechuga = await Hamburguesas.find({ingredientes:{$in:["Tomate","Lechuga"]}})
+
+        res.json(tomateLechuga)
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const incrementarPrecioGourmet = async (req,res)=>{
+    try {
+        
+        const incrementarPrecio = await Hamburguesas.updateMany({categoria:"Gourmet"},{$inc:{precio:2}})
+
+        res.json(incrementarPrecio)
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const getIngredientesAlfatbeticos = async (req,res)=>{
+    try {
+        
+        const ordenalfabetico = await Hamburguesas.aggregate([
+            { $unwind: "$ingredientes" }, // Descompone el array "ingredientes" en registros separados
+            { $sort: { "ingredientes": 1 } }, // Ordena alfabéticamente los registros
+            {
+              $group: {
+                _id: "$_id", // Agrupa nuevamente por el ID del documento original
+                ingredientes: { $push: "$ingredientes" } // Agrupa los ingredientes nuevamente en un array
+              }
+            }
+          ]);
+        res.json(ordenalfabetico)
+
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+
 
  
  
@@ -120,5 +166,8 @@ export {
     getNoQuesoCheddar,
     getHamburguesasMenor9,
     eliminarHamburguesaMe5,
-    getHamburguesaAscendentes
+    getHamburguesaAscendentes,
+    getTomateLechuga,
+    incrementarPrecioGourmet,
+    getIngredientesAlfatbeticos
 }
